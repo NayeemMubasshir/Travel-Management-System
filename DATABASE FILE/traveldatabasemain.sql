@@ -65,6 +65,28 @@ CREATE TABLE `packages` (
 
 
 
+
+
+
+CREATE TABLE `staffs` (
+  `user_id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `fullname` varchar(50) NOT NULL,
+  `address` varchar(20) NOT NULL,
+  `designation` varchar(20) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `contact` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+INSERT INTO `staffs` (`user_id`, `username`, `password`, `email`, `fullname`, `address`, `designation`, `gender`, `contact`) VALUES
+(1, 'manager', 'manager123', 'abdul karim@gmail.com', 'Abdul karim', 'md.pur', 'TravelManager', 'Male', 111111111);
+
+
+
 INSERT INTO `packages` (`id`, `name`, `charge`) VALUES
 (1, 'Long tour: 3 months', '300'),
 (2, 'Short tour: 2 weeks', '100'),
