@@ -1,11 +1,18 @@
 <?php session_start();
- include('setconntodb.php'); ?>
+ include('setconntotraveldb.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
     
 <head>
-        <title>Travel Admin</title><meta charset="UTF-8" />
-        
+        <title>Travel admin</title><meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+        <link rel="stylesheet" href="css/matrix-style.css" />
+        <link rel="stylesheet" href="css/matrix-login.css" />
+        <link href="font-awesome/css/fontawesome.css" rel="stylesheet" />
+        <link href="font-awesome/css/all.css" rel="stylesheet" />
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 
     </head>
     
@@ -13,18 +20,18 @@
     
         <div id="loginbox">            
             <form id="loginform" method="POST" class="form-vertical" action="#">
-            <div class="control-group normal_text"> <h3><img src="" alt="Logo" /></h3></div>
+            <div class="control-group normal_text"> <h3><img src="img/travelhead.png" alt="Logo" /></h3></div>
                 <div class="control-group">
                     <div class="controls">
                         <div class="main_input_box">
-                            <span class="add-on bg_lg"></span><input type="text" name="user" placeholder="Username" required/>
+                            <span class="add-on bg_lg"><i class="fas fa-user-circle"></i></span><input type="text" name="user" placeholder="Username" required/>
                         </div>
                     </div>
                 </div>
                 <div class="control-group">
                     <div class="controls">
                         <div class="main_input_box">
-                            <span class="add-on bg_ly"></span><input type="password" name="pass" placeholder="Password" required />
+                            <span class="add-on bg_ly"><i class="fas fa-lock"></i></span><input type="password" name="pass" placeholder="Password" required />
                         </div>
                     </div>
                 </div>
@@ -67,12 +74,15 @@
             </div>
 
             <div class="pull-right">
-            <a href="travelmanager/index.php"><h6>travelmanager Login</h6></a>
+            <a href="staff/index.php"><h6>Travel Manager Login</h6></a>
             </div>
             
         </div>
         
-        
+        <script src="js/jquery.min.js"></script>  
+        <script src="js/matrix.login.js"></script> 
+        <script src="js/bootstrap.min.js"></script> 
+<script src="js/matrix.js"></script>
     </body>
 
 </html>
