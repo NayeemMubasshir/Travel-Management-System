@@ -1,9 +1,9 @@
 body {
-	background:#010392;
+	background:#ffffff;
 }
 
 #header {
-	background-color: #070588;
+	background-color: #1f262d;
    margin-top:10px;
 }
 #search input[type=text], #search button {
@@ -14,7 +14,7 @@ body {
 }
 #sidebar > ul{border-bottom: 1px solid #37414b}
 #sidebar > ul > li {
-	border-top: 1px solid #02478b; border-bottom: 1px solid #1f262d;
+	border-top: 1px solid #37414b; border-bottom: 1px solid #1f262d;
 }
 #sidebar > ul > li.active {
     background-color: #27a9e3; border-bottom: 1px solid #27a9e3;  border-top: 1px solid #27a9e3;
@@ -28,7 +28,7 @@ body {
 	background-color: #27a9e3; color:#fff;
 }
 #sidebar > ul li ul {
-	background-color: #1e242b;
+	background-color: #ffffff;
 }
 #sidebar > ul li ul li a{ color:#939da8}
 #sidebar > ul li ul li a:hover, #sidebar > ul li ul li.active a {
@@ -41,7 +41,7 @@ body {
 	background-color: #47515b; color: #fff; 
 }
 #search input[type=text]:focus {
-	color: #2e363f; color: #fff; box-shadow:none;
+	color: #ffffff; color: #fff; box-shadow:none;
 }
 .dropdown-menu li a:hover, .dropdown-menu .active a, .dropdown-menu .active a:hover {
     color: #eeeeee;
