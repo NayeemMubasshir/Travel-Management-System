@@ -10,6 +10,16 @@
       </ul>
     </li>
 
+    <li class="submenu"> <a href="#"><i class="fas fa-plane-departure"></i> <span>Travel Content</span> <span class="label label-important"></span></a>
+
+    <ul>
+        <li class="<?php if($page=='list-equip'){ echo 'active'; }?>"><a href="travellocation.php"><i class="fas fa-arrow-right"></i> List travellocation</a></li>
+        <li class="<?php if($page=='add-equip'){ echo 'active'; }?>"><a href="travellocationentry.php"><i class="fas fa-arrow-right"></i> Add travellocation</a></li>
+        <li class="<?php if($page=='remove-equip'){ echo 'active'; }?>"><a href="removetravellocation.php"><i class="fas fa-arrow-right"></i> Remove travellocation</a></li>
+        <li class="<?php if($page=='update-equip'){ echo 'active'; }?>"><a href="edittravellocation.php"><i class="fas fa-arrow-right"></i> Update travellocation Details</a></li>
+      </ul>
+    </li>
+
 
     
     

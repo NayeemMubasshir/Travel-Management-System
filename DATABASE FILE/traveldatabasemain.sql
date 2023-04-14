@@ -53,8 +53,8 @@ CREATE TABLE `travellocation` (
 
 
 INSERT INTO `travellocation` (`id`, `name`, `amount`, `quantity`, `vendor`, `description`, `address`, `contact`, `date`) VALUES
-(4, 'Sajek', 949, 3, 'Resort asd', 'Free food and transport', 'asd road, Hill district', '1245558980', '2023-03-10'),
-(5, 'Cox', 102, 26, 'Sayeman hotel', 'Free food, transport upon request', 'Laboni point, Cox', '9875552100', '2023-04-10');
+(4, 'Sajek', 949, 3, 'Resort asd', 'Free food and transport', 'asd road, Hill district', '1245558980', '2023-04-20'),
+(5, 'Cox', 102, 26, 'Sayeman hotel', 'Free food, transport upon request', 'Laboni point, Cox', '9875552100', '2023-04-23');
 
 
 
