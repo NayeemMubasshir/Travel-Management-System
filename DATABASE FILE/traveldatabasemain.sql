@@ -84,16 +84,6 @@ CREATE TABLE `members` (
 
 
 
-INSERT INTO `members` (`user_id`, `fullname`, `username`, `password`, `gender`, `dor`, `services`, `amount`, `paid_date`, `p_year`, `plan`, `address`, `contact`, `status`,  `reminder`) VALUES
-(6, 'Rashed Hasan', 'rashed', '123123', 'Male', '2023-12-25', 'CoxBazar', 165, '2023-06-02', 2023, '3', '64 Dhanmondi', '8545878545', 'Active',  0),
-(8, 'Chonchol Chowdhury', 'chonchol', '123123', 'Male', '2023-01-02', 'CoxBazar', 55, '2023-04-01', 2023, '3', '10 Mirpur', '8520258520', 'Active',  1),
-(11, 'Jakir Hossain', 'jakir', '123123', 'Male', '2023-01-25', 'Sajek', 35, '2023-03-31', 2023, '3', '14 Mdpur', '7535752220', 'Active',  0),
-(14, 'Raiyan Haque', 'raiyan', '123123', 'Male', '2023-07-13', 'CoxBazar', 55, '2023-04-02', 2023, '12', '34 Banani', '1578880010', 'Active',  0),
-(16, 'Jahan karim', 'jahan', '123123', 'Female', '2023-04-01', 'CoxBazar', 0, '2023-06-12', 2023, '0', '4 Mirpur', '741111110', 'Expired',  1),
-(17, 'Safa Ahmed', 'safa', '123123', 'Female', '2023-04-02', 'Sajek', 120, '2023-05-31', 2023, '3', '23 Gulshan', '7441002540', 'Active',  0),
-(18, 'Preety Dey', 'preety', '123123', 'Female', '2023-04-04', 'CoxBazar', 55, '2023-06-11', 2023, '1', '86 Banani', '7854445410', 'Active',  0),
-(19, 'Kamal Ahmed', 'Kamal', '123123', 'Male', '2023-04-02', 'CoxBazar', 55, '2023-06-11', 2023, '1', '43 Mdpur', '0258987850', 'Active',  1),
-(20, 'Jarin Tasnim', 'Jarin', '123123', 'Female', '2023-03-21', 'CoxBazar', 55, '2023-06-11', 2023, '1', '24 Mdpur', '8547896520', 'Active',  0);
 
 
 
@@ -147,9 +137,6 @@ CREATE TABLE `staffs` (
 
 
 INSERT INTO `staffs` (`user_id`, `username`, `password`, `email`, `fullname`, `address`, `designation`, `gender`, `contact`) VALUES
-(1, 'manager', 'manager123', 'abdulkarim@gmail.com', 'Abdul karim', 'md.pur', 'TravelManager', 'Male', 111111111),
-(2, 'guide', 'guide123', 'guide@gmail.com', 'Jamal Karim', 'dhanmondi', 'Travelguide', 'Male', 222222222);
-
 
 
 CREATE TABLE `faqandsupp` (
