@@ -1,3 +1,10 @@
+<?php
+session_start();
+//the isset function to check username is already loged in and stored on the session
+if(!isset($_SESSION['user_id'])){
+header('location:../index.php');	
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,15 +33,8 @@
 <!--top-Header-menu-->
 <?php include '../includes/topheader.php'?>
 <!--close-top-Header-menu-->
-
-<!--start-top-serch-->
-<!-- <div id="search">
-  <input type="hidden" placeholder="Search here..."/>
-  <button type="submit" class="tip-bottom" title="Search"><i class="icon-search icon-white"></i></button>
-</div> -->
-<!--close-top-serch-->
 <!--sidebar-menu-->
-<?php $page="dashboard"; include '../includes/sidebar.php'?>
+<?php $page="faqandsupp"; include '../includes/sidebar.php'?>
 <!--sidebar-menu-->
 
 <!--main-container-part-->
@@ -51,87 +51,77 @@
 <!--End-Action boxes-->    
 
     <div class="row-fluid">
-	  
-      <div class="span6">
-       
-       <div class="widget-box">
-          <div class="widget-title"> <span class="icon"><i class="icon-time"></i></span>
-            <h5>My FAQ and Supp</h5>
-          </div>
-          <div class="widget-content nopadding">
+	<form role="form" action="index.php" method="POST">  
+    <?php 
 
-        <?php
-            include "setconntotraveldb.php";
-            include "session.php";
-            $qry="SELECT * FROM faqandsupp WHERE user_id='".$_SESSION['user_id']."'";
-            $result=mysqli_query($conn,$qry);
+        include 'session.php';
 
-            echo"<table class='table table-striped table-bordered'>
-              <thead>
-                <tr>
-                  <th>Description</th>
-                  <th>Status</th>
-                  <th>Opts</th>
-                </tr>
-              </thead>";
-              while($row=mysqli_fetch_array($result)){
-              echo"<tbody>
-                <tr>
-                  <td class='taskDesc'><a href='to-do.php'><i class='icon-plus-sign'></i></a>".$row['task_desc']."</td>
-                  <td class='taskStatus'><span class='in-progress'>".$row['task_status']."</span></td>
-                  <td class='taskOptions'><a href='updatefaqandsupp.php?id=".$row['id']."' class='tip-top' data-original-title='Update'><i class='icon-edit'></i></a>  <a href='actions/removefaqandsupp.php?id=".$row['id']."' class='tip-top' data-original-title='Done'><i class='icon-ok'></i></a></td>
-                </tr>
-				
-               
-              </tbody>";
-              }
-        ?>
+        if(isset($_POST['task_desc'])){   
+        $task_status = $_POST["task_status"];
+        $task_desc = $_POST["task_desc"];
+        $user_id = $session_id;
+        include 'setconntotraveldb.php';
+        
+        //code after connection is successfull
+        $qry = "insert into faqandsupp(task_status,task_desc,user_id) values ('$task_status','$task_desc','$user_id')";
+        $result = mysqli_query($conn,$qry); //query executes
 
-            </table>
-          </div>
-        </div>
-       
-      
-       
-      </div> <!-- End of ToDo List Bar -->
-	  
-	  <div class="span6">
-        <div class="widget-box">
-          <div class="widget-title bg_ly" data-toggle="collapse" href="#collapseG2"><span class="icon"><i class="icon-chevron-down"></i></span>
-            <h5>travel travelevent</h5>
-          </div>
-          <div class="widget-content nopadding collapse in" id="collapseG2">
-            <ul class="recent-posts">
-              <li>
-
-              <?php
-
-                include "setconntotraveldb.php";
-                $qry="select * from travelevents";
-                  $result=mysqli_query($conn,$qry);
-                  
-                while($row=mysqli_fetch_array($result)){
-                  echo"<div class='user-thumb'> <img width='70' height='40' alt='User' src='../img/demo/av1.jpg'> </div>";
-                  echo"<div class='article-post'>"; 
-                  echo"<span class='user-info'> By: System Administrator / Date: ".$row['date']." </span>";
-                  echo"<p><a href='#'>".$row['message']."</a> </p>";
-                 
-                }
-
+            if(!$result){
+            echo"<div class='container-fluid'>";
+                echo"<div class='row-fluid'>";
+                echo"<div class='span12'>";
+                echo"<div class='widget-box'>";
+                echo"<div class='widget-title'> <span class='icon'> <i class='icon-info-sign'></i> </span>";
+                    echo"<h5>Error Message</h5>";
+                    echo"</div>";
+                    echo"<div class='widget-content'>";
+                        echo"<div class='error_ex'>";
+                        echo"<h1 style='color:maroon;'>Error 404</h1>";
+                        echo"<h3>Error occured while entering your details</h3>";
+                        echo"<p>Please Try Again</p>";
+                        echo"<a class='btn btn-warning btn-big'  href='index.php'>Go Back</a> </div>";
+                    echo"</div>";
+                    echo"</div>";
                 echo"</div>";
-                echo"</li>";
-              ?>
-                <a href="travelevent.php"><button class="btn btn-warning btn-mini">View All</button></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div> <!-- end of travelevent -->
+                echo"</div>";
+            echo"</div>";
+            }else {
+
+            echo"<div class='container-fluid'>";
+                echo"<div class='row-fluid'>";
+                echo"<div class='span12'>";
+                echo"<div class='widget-box'>";
+                echo"<div class='widget-title'> <span class='icon'> <i class='icon-info-sign'></i> </span>";
+                    echo"<h5>Message</h5>";
+                    echo"</div>";
+                    echo"<div class='widget-content'>";
+                        echo"<div class='error_ex'>";
+                        echo"<h1>Success</h1>";
+                        echo"<h3>Your task has been added!</h3>";
+                        echo"<p>Please click the button to go back.</p>";
+                        echo"<a class='btn btn-inverse btn-big'  href='index.php'>Go Back</a> </div>";
+                    echo"</div>";
+                    echo"</div>";
+                echo"</div>";
+                echo"</div>";
+            echo"</div>";
+
+            }
+
+            }else{
+                echo"<h3>YOU ARE NOT AUTHORIZED TO REDIRECT THIS PAGE. GO BACK to <a href='index.php'> DASHBOARD </a></h3>";
+            }
+
+?>                
+       </form>   
+    
+	  
+	  
 	  
     </div><!-- End of row-fluid -->
   </div><!-- End of container-fluid -->
 </div><!-- End of content-ID -->
-
+</div>
 <!--end-main-container-part-->
 
 

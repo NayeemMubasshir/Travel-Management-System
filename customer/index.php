@@ -42,19 +42,16 @@ include('setconntotraveldb.php'); ?>
                 <div class="g">
                 <a href="../index.php"><h6>Go Back</h6></a>
                 </div>
-
-
-
-                                
+                
                 <?php
                 if (isset($_POST['login']))
                     {
-                        $username = mysqli_real_escape_string($con, $_POST['user']);
-                        $password = mysqli_real_escape_string($con, $_POST['pass']);
+                        $username = mysqli_real_escape_string($conn, $_POST['user']);
+                        $password = mysqli_real_escape_string($conn, $_POST['pass']);
 
                         
                         
-                        $query 		= mysqli_query($con, "SELECT * FROM members WHERE  password='$password' and username='$username' and status='Active'");
+                        $query 		= mysqli_query($conn, "SELECT * FROM members WHERE  password='$password' and username='$username' and status='Active'");
                         $row		= mysqli_fetch_array($query);
                         $num_row 	= mysqli_num_rows($query);
                         

@@ -66,7 +66,7 @@ header('location:../index.php');
       include "setconntotraveldb.php";
       $qry="select * from members";
       $cnt = 1;
-        $result=mysqli_query($con,$qry);
+        $result=mysqli_query($conn,$qry);
 
         
           echo"<table class='table table-bordered table-hover'>

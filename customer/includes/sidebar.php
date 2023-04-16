@@ -1,10 +1,21 @@
 <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
   <ul>
 
-  
+    <li class="submenu"> <a href="#"><i class="fas fa-plane-departure"></i> <span>Travel Contents</span> <span class="label label-important"></span></a>
+    <ul>
+        <li class="<?php if($page=='list-travellocation'){ echo 'active'; }?>"><a href="travellocation.php"><i class="fas fa-arrow-right"></i> List travel travellocation</a></li>
+        
+      </ul>
+    </li>
 
    
     
+
+    
+
+    <li class="<?php if($page=='travelevent'){ echo 'active'; }?>"><a href="travelevent.php"><i class="icon icon-bullhorn"></i> <span>travelevent</span></a></li>
+
+    <li class="<?php if($page=='report'){ echo 'active'; }?>"><a href="my-report.php"><i class="icon icon-file"></i> <span>Reports</span></a></li>
 
 
     <li class="submenu"> <a href="#"><i class="fas fa-users"></i> <span>Manage Members</span></a>
@@ -20,7 +31,12 @@
 
     
 
+    <li class="<?php if($page=='faqandsupp'){ echo 'active'; }?>"> <a href="faqandsupp.php"><i class="icon icon-pencil"></i> <span>Travel FAQ</span></a>
+
+
     
+
+    </li>
 
 
 

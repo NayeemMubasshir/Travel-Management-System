@@ -9,7 +9,7 @@ header('location:../index.php');
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Travel admin</title>
+<title>travel System</title>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="../css/bootstrap.min.css" />
@@ -17,8 +17,7 @@ header('location:../index.php');
 <link rel="stylesheet" href="../css/fullcalendar.css" />
 <link rel="stylesheet" href="../css/matrix-style.css" />
 <link rel="stylesheet" href="../css/matrix-media.css" />
-<link href="../font-awesome/css/fontawesome.css" rel="stylesheet" />
-<link href="../font-awesome/css/all.css" rel="stylesheet" />
+<link href="../font-awesome/css/font-awesome.css" rel="stylesheet" />
 <link rel="stylesheet" href="../css/jquery.gritter.css" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 </head>
@@ -26,97 +25,72 @@ header('location:../index.php');
 
 <!--Header-part-->
 <div id="header">
-  <h1><a href="dashboard.html">Nayeem Travelling Co Admin</a></h1>
+  <h1><a href="index.php">Nayeem Travelling Co System</a></h1>
 </div>
 <!--close-Header-part--> 
 
 
 <!--top-Header-menu-->
-
+<?php include '../includes/topheader.php'?>
 <!--close-top-Header-menu-->
-<!--start-top-serch-->
-<!-- <div id="search">
-  <input type="hidden" placeholder="Search here..."/>
-  <button type="submit" class="tip-bottom" title="Search"><i class="icon-search icon-white"></i></button>
-</div> -->
-<!--close-top-serch-->
-
+<!--sidebar-menu-->
+<?php $page="travelevent"; include '../includes/sidebar.php'?>
 <!--sidebar-menu-->
 
-<!--sidebar-menu-->
-
+<!--main-container-part-->
 <div id="content">
+<!--breadcrumbs-->
   <div id="content-header">
-    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="fas fa--home"></i> Home</a> <a href="#" class="current">Registered Members</a> </div>
-    <h1 class="text-center">Registered Members List <i class="fas fa-group"></i></h1>
+    <div id="breadcrumb"> <a href="index.php" title="You're right here" class="tip-bottom"><i class="icon-home"></i> Home</a></div>
   </div>
+<!--End-breadcrumbs-->
+
+<!--Action boxes-->
   <div class="container-fluid">
-    <hr>
+    
+<!--End-Action boxes-->    
+
     <div class="row-fluid">
-      <div class="span12">
-
-      <div class='widget-box'>
-          <div class='widget-title'> <span class='icon'> <i class='fas fa-th'></i> </span>
-            <h5>Member table</h5>
-          </div>
-          <div class='widget-content nopadding'>
 	  
-	  <?php
+    <div class="span12">
+    <div class="widget-box">
+          <div class="widget-title bg_ly" data-toggle="collapse" href="#collapseG2"><span class="icon"><i class="icon-chevron-down"></i></span>
+            <h5>travel travelevent</h5>
+          </div>
+          <div class="widget-content nopadding collapse in" id="collapseG2">
+            <ul class="recent-posts">
+              <li>
 
-include "setconntotraveldb.php";
+              <?php
 
-// Get the user ID of the currently logged-in user
-$user_id = $_SESSION['user_id'];
+                include "setconntotraveldb.php";
+                $qry="select * from travelevents";
+                  $result=mysqli_query($conn,$qry);
+                  
+                while($row=mysqli_fetch_array($result)){
+                  echo"<div class='user-thumb'> <img width='50' height='50' alt='User' src='../img/demo/av2.jpg'> </div>";
+                  echo"<div class='article-post'>"; 
+                  echo"<span class='user-info'> By: System Administrator / Date: ".$row['date']." </span>";
+                  echo"<p><a href='#'>".$row['message']."</a> </p>";
+                 
+                }
 
-$qry = "SELECT * FROM members WHERE user_id = $user_id";
-$result = mysqli_query($conn, $qry);
-
-echo "<table class='table table-bordered table-hover'>
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Fullname</th>
-                <th>Username</th>
-                <th>Gender</th>
-                <th>Contact Number</th>
-                <th>D.O.R</th>
-                <th>Address</th>
-                <th>Amount</th>
-                <th>Choosen Service</th>
-                <th>Plan</th>
-                <th>Action</th>
-            </tr>
-        </thead>";
-
-while($row = mysqli_fetch_array($result)) {
-    echo "<tbody> 
-            <td><div class='text-center'>1</div></td>
-            <td><div class='text-center'>".$row['fullname']."</div></td>
-            <td><div class='text-center'>@".$row['username']."</div></td>
-            <td><div class='text-center'>".$row['gender']."</div></td>
-            <td><div class='text-center'>".$row['contact']."</div></td>
-            <td><div class='text-center'>".$row['dor']."</div></td>
-            <td><div class='text-center'>".$row['address']."</div></td>
-            <td><div class='text-center'>$".$row['amount']."</div></td>
-            <td><div class='text-center'>".$row['services']."</div></td>
-            <td><div class='text-center'>".$row['plan']." Month/s</div></td>
-            <td><div class='text-center'><a href='edit-memberform.php'><i class='fas fa-edit'></i> Edit</a></div></td>
-        </tbody>";
-
-            }
-            ?>
-
-            </table>
+                echo"</div>";
+                echo"</li>";
+              ?>
+    
+              </li>
+            </ul>
           </div>
         </div>
-   
-		
-	
-      </div>
-    </div>
-  </div>
+      </div><!--end of span 12 -->
+	  
+	  
+	  
+    </div><!-- End of row-fluid -->
+  </div><!-- End of container-fluid -->
+</div><!-- End of content-ID -->
 </div>
-
 <!--end-main-container-part-->
 
 

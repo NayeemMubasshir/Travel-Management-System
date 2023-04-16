@@ -9,7 +9,7 @@ header('location:../index.php');
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Travel admin</title>
+<title>travel System</title>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="../css/bootstrap.min.css" />
@@ -17,8 +17,7 @@ header('location:../index.php');
 <link rel="stylesheet" href="../css/fullcalendar.css" />
 <link rel="stylesheet" href="../css/matrix-style.css" />
 <link rel="stylesheet" href="../css/matrix-media.css" />
-<link href="../font-awesome/css/fontawesome.css" rel="stylesheet" />
-<link href="../font-awesome/css/all.css" rel="stylesheet" />
+<link href="../font-awesome/css/font-awesome.css" rel="stylesheet" />
 <link rel="stylesheet" href="../css/jquery.gritter.css" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 </head>
@@ -26,97 +25,77 @@ header('location:../index.php');
 
 <!--Header-part-->
 <div id="header">
-  <h1><a href="dashboard.html">Nayeem Travelling Co Admin</a></h1>
+  <h1><a href="index.php">Nayeem Travelling Co System</a></h1>
 </div>
 <!--close-Header-part--> 
 
 
 <!--top-Header-menu-->
-
+<?php include '../includes/topheader.php'?>
 <!--close-top-Header-menu-->
-<!--start-top-serch-->
-<!-- <div id="search">
-  <input type="hidden" placeholder="Search here..."/>
-  <button type="submit" class="tip-bottom" title="Search"><i class="icon-search icon-white"></i></button>
-</div> -->
-<!--close-top-serch-->
+<!--sidebar-menu-->
+<?php $page="faqandsupp"; include '../includes/sidebar.php'?>
 
 <!--sidebar-menu-->
 
-<!--sidebar-menu-->
-
+<!--main-container-part-->
 <div id="content">
+<!--breadcrumbs-->
   <div id="content-header">
-    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="fas fa--home"></i> Home</a> <a href="#" class="current">Registered Members</a> </div>
-    <h1 class="text-center">Registered Members List <i class="fas fa-group"></i></h1>
+    <div id="breadcrumb"> <a href="index.php" title="You're right here" class="tip-bottom"><i class="icon-home"></i> Home</a></div>
   </div>
+<!--End-breadcrumbs-->
+
+<!--Action boxes-->
   <div class="container-fluid">
-    <hr>
+    
+<!--End-Action boxes-->    
+
     <div class="row-fluid">
-      <div class="span12">
-
-      <div class='widget-box'>
-          <div class='widget-title'> <span class='icon'> <i class='fas fa-th'></i> </span>
-            <h5>Member table</h5>
-          </div>
-          <div class='widget-content nopadding'>
 	  
-	  <?php
-
-include "setconntotraveldb.php";
-
-// Get the user ID of the currently logged-in user
-$user_id = $_SESSION['user_id'];
-
-$qry = "SELECT * FROM members WHERE user_id = $user_id";
-$result = mysqli_query($conn, $qry);
-
-echo "<table class='table table-bordered table-hover'>
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Fullname</th>
-                <th>Username</th>
-                <th>Gender</th>
-                <th>Contact Number</th>
-                <th>D.O.R</th>
-                <th>Address</th>
-                <th>Amount</th>
-                <th>Choosen Service</th>
-                <th>Plan</th>
-                <th>Action</th>
-            </tr>
-        </thead>";
-
-while($row = mysqli_fetch_array($result)) {
-    echo "<tbody> 
-            <td><div class='text-center'>1</div></td>
-            <td><div class='text-center'>".$row['fullname']."</div></td>
-            <td><div class='text-center'>@".$row['username']."</div></td>
-            <td><div class='text-center'>".$row['gender']."</div></td>
-            <td><div class='text-center'>".$row['contact']."</div></td>
-            <td><div class='text-center'>".$row['dor']."</div></td>
-            <td><div class='text-center'>".$row['address']."</div></td>
-            <td><div class='text-center'>$".$row['amount']."</div></td>
-            <td><div class='text-center'>".$row['services']."</div></td>
-            <td><div class='text-center'>".$row['plan']." Month/s</div></td>
-            <td><div class='text-center'><a href='edit-memberform.php'><i class='fas fa-edit'></i> Edit</a></div></td>
-        </tbody>";
-
-            }
-            ?>
-
-            </table>
+    <div class="span12">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"> <i class="icon-pencil"></i> </span>
+            <h5>FAQ and Supps</h5>
           </div>
-        </div>
-   
-		
-	
-      </div>
-    </div>
-  </div>
-</div>
+          <div class="widget-content nopadding">
+            <form id="form-wizard" class="form-horizontal" action="addfaqandsupp.php" method="POST">
+              <div id="form-wizard-1" class="step">
 
+              <div class="control-group">
+                <label class="control-label">Please enter your question:</label>
+                <div class="controls">
+                    <input type="text" class="span11" name="task_desc" placeholder="Booking request or inquiry" />
+                </div>
+                </div>
+
+                 <div class="control-group">
+                    <label class="control-label">Please Select a Status:</label>
+                    <div class="controls">
+                        <select name="task_status" required="required" id="select">
+                        <option value="In Progress">In Progress</option>
+                        <option value="Pending">Pending</option>
+                        </select>
+                    </div>
+                </div>
+
+              <div class="form-actions">
+              <input type="hidden" name="userid" value="<?php echo $userid; ?>">
+                <input id="add" class="btn btn-primary" type="submit" value="Add To List" />
+                <div id="status"></div>
+              </div>
+              <div id="submitted"></div>
+            </form>
+          </div><!--end of widget-content -->
+        </div><!--end of widget box-->
+      </div><!--end of span 12 -->
+	  
+	  
+	  
+    </div><!-- End of row-fluid -->
+  </div><!-- End of container-fluid -->
+</div><!-- End of content-ID -->
+</div>
 <!--end-main-container-part-->
 
 

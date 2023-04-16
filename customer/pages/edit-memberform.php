@@ -49,7 +49,7 @@ header('location:../index.php');
 include 'setconntotraveldb.php';
 $id=$_GET['id'];
 $qry= "select * from members where user_id='$id'";
-$result=mysqli_query($con,$qry);
+$result=mysqli_query($conn,$qry);
 while($row=mysqli_fetch_array($result)){
 ?> 
 
