@@ -24,14 +24,14 @@
                 <div class="control-group">
                     <div class="controls">
                         <div class="main_input_box">
-                            <span class="add-on bg_lg"><i class="fas fa-user-circle"></i></span><input type="text" name="user" placeholder="Username" required/>
+                            <span class="add-on bg_lb"><i class="fas fa-user-circle"></i></span><input type="text" name="user" placeholder="Username" required/>
                         </div>
                     </div>
                 </div>
                 <div class="control-group">
                     <div class="controls">
                         <div class="main_input_box">
-                            <span class="add-on bg_ly"><i class="fas fa-lock"></i></span><input type="password" name="pass" placeholder="Password" required />
+                            <span class="add-on bg_lb"><i class="fas fa-key"></i></span><input type="password" name="pass" placeholder="Password" required />
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
             </div>
 
             <div class="pull-right">
-            <a href="staff/index.php"><h6>Travel Manager Login</h6></a>
+            <a href="staff/index.php"><h6>Staff Login</h6></a>
             </div>
             
         </div>
