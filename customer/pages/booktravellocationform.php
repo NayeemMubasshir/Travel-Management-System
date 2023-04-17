@@ -71,7 +71,7 @@ header('location:../index.php');
             <div class="control-group">
               <label class="control-label">travellocation Name :</label>
               <div class="controls">
-                <input type="text" class="span11" name="name" value='<?php echo $row['name']; ?>' required />
+                <input type="text" class="span11" name="name" disabled="" value='<?php echo $row['name']; ?>' required />
               </div>
             </div>
 
@@ -95,22 +95,22 @@ header('location:../index.php');
             <div class="control-group">
               <label class="control-label">Description :</label>
               <div class="controls">
-                <input type="text" class="span11" name="description" value='<?php echo $row['description']; ?>' required />
+                <input type="text" class="span11" name="description" disabled="" value='<?php echo $row['description']; ?>' required />
               </div>
             </div>
            
             
             <div class="control-group">
-              <label class="control-label">Date of Purchase :</label>
+              <label class="control-label">Valid till :</label>
               <div class="controls">
-                <input type="date" name="date" value='<?php echo $row['date']; ?>' class="span11" />
-                <span class="help-block">Please mention the date of purchase</span> </div>
+                <input type="date" name="date" disabled="" value='<?php echo $row['date']; ?>' class="span11" />
+                <span class="help-block"></span> </div>
             </div>
 
              <div class="control-group">
               <label class="control-label">Quantity :</label>
               <div class="controls">
-                <input type="number" class="span4" name="quantity" value='<?php echo $row['quantity']; ?>'  required />
+                <input type="number" class="span4" name="quantity" disabled="" value='<?php echo $row['quantity']; ?>'  required />
               </div>
             </div>
             
@@ -150,21 +150,21 @@ header('location:../index.php');
             <div class="control-group">
               <label for="normal" class="control-label">Contact Number</label>
               <div class="controls">
-                <input type="text" id="mask-phone" name="contact" minlength="10" maxlength="10" value='<?php echo $row['contact']; ?>' class="span8 mask text" required>
+                <input type="text" id="mask-phone" name="contact" minlength="10" maxlength="10" disabled="" value='<?php echo $row['contact']; ?>' class="span8 mask text" required>
                 <span class="help-block blue span8">(999) 999-9999</span> 
                 </div>
             </div>
             <div class="control-group">
               <label class="control-label">vendor :</label>
               <div class="controls">
-                <input type="text" class="span11" name="vendor" value='<?php echo $row['vendor']; ?>' required />
+                <input type="text" class="span11" name="vendor" disabled="" value='<?php echo $row['vendor']; ?>' required />
               </div>
             </div>
 
             <div class="control-group">
               <label class="control-label">Address :</label>
               <div class="controls">
-                <input type="text" class="span11" name="address" value='<?php echo $row['address']; ?>' required />
+                <input type="text" class="span11" name="address" disabled="" value='<?php echo $row['address']; ?>' required />
               </div>
             </div>
           </div>
@@ -183,7 +183,7 @@ header('location:../index.php');
               <div class="controls">
                 <div class="input-append">
                   <span class="add-on">$</span> 
-                  <input type="number" placeholder="120000" name="amount" value='<?php echo $row['amount']; ?>' class="span11" required>
+                  <input type="number" placeholder="120000" name="amount" disabled="" value='<?php echo $row['amount']; ?>' class="span11" required>
                   </div>
               </div>
             </div>
@@ -193,7 +193,7 @@ header('location:../index.php');
             <div class="form-actions text-center">
                 <!-- user's ID is hidden here -->
              <input type="hidden" name="id" value="<?php echo $row['id'];?>">
-              <button type="submit" class="btn btn-success">Submit Details</button>
+              <button type="submit" class="btn btn-success">Submit Booking</button>
             </div>
             </form>
 

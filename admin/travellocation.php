@@ -64,7 +64,7 @@ header('location:../index.php');
 	  <?php
 
       include "setconntotraveldb.php";
-      $qry="select * from travellocation";
+      $qry="select * from travellocation where `bookedstatus` !='booked'";
       $cnt = 1;
         $result=mysqli_query($conn,$qry);
 

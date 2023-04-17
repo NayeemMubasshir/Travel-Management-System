@@ -32,7 +32,7 @@ header('location:../index.php');
 
 
 <!--top-Header-menu-->
-<?php include '../includes/topheader.php'?>
+<?php include 'includes/topheader.php'?>
 <!--close-top-Header-menu-->
 <!--start-top-serch-->
 <!-- <div id="search">
@@ -42,7 +42,7 @@ header('location:../index.php');
 <!--close-top-serch-->
 
 <!--sidebar-menu-->
-<?php $page='list-travellocation'; include '../includes/sidebar.php'?>
+<?php $page='list-travellocation'; include 'includes/sidebar.php'?>
 <!--sidebar-menu-->
 
 <div id="content">
@@ -64,7 +64,7 @@ header('location:../index.php');
 	  <?php
 
       include "setconntotraveldb.php";
-      $qry="select * from travellocation where `bookedstatus` !='booked'";
+      $qry="select * from travellocation where `bookedstatus`='booked'";
       $cnt = 1;
         $result=mysqli_query($conn,$qry);
 
@@ -73,7 +73,7 @@ header('location:../index.php');
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>E. Name</th>
+                  <th>Content Name</th>
                   <th>Description</th>
                   <th>Qty</th>
                   <th>Amount</th>
@@ -81,6 +81,12 @@ header('location:../index.php');
                   <th>Address</th>
                   <th>Contact</th>
                   <th>Available Till</th>
+                  <th>Booker Name</th>
+                  <th>Contact</th>
+                  
+
+
+
                 </tr>
               </thead>";
               
@@ -97,6 +103,8 @@ header('location:../index.php');
                 <td><div class='text-center'>".$row['address']."</div></td>
                 <td><div class='text-center'>".$row['contact']."</div></td>
                 <td><div class='text-center'>".$row['date']."</div></td>
+                <td><div class='text-center'>".$row['bookername']."</div></td>
+                <td><div class='text-center'>".$row['bookercontact']."</div></td>
              
                 
               </tbody>";
