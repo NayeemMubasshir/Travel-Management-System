@@ -47,14 +47,19 @@ CREATE TABLE `travellocation` (
   `description` varchar(50) NOT NULL,
   `address` varchar(20) NOT NULL,
   `contact` varchar(10) NOT NULL,
-  `date` date NOT NULL
+  `date` date NOT NULL,
+  `bookedstatus` varchar(30) NOT NULL,
+  `bookername` varchar(30) NOT NULL,
+  `bookercontact` varchar(30) NOT NULL
+
+
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 
-INSERT INTO `travellocation` (`id`, `name`, `amount`, `quantity`, `vendor`, `description`, `address`, `contact`, `date`) VALUES
-(4, 'Sajek', 949, 3, 'Resort asd', 'Free food and transport', 'asd road, Hill district', '1245558980', '2023-04-20'),
-(5, 'Cox', 102, 26, 'Sayeman hotel', 'Free food, transport upon request', 'Laboni point, Cox', '9875552100', '2023-04-23');
+INSERT INTO `travellocation` (`id`, `name`, `amount`, `quantity`, `vendor`, `description`, `address`, `contact`, `date`, `bookedstatus`, `bookername`, `bookercontact`) VALUES
+(4, 'Sajek', 949, 3, 'Resort asd', 'Free food and transport', 'asd road, Hill district', '1245558980', '2023-04-20','notbooked','asd', 'asd'),
+(5, 'Cox', 102, 26, 'Sayeman hotel', 'Free food, transport upon request', 'Laboni point, Cox', '9875552100', '2023-04-23', 'notbooked','asdasd', 'asdasd');
 
 
 
@@ -81,6 +86,9 @@ CREATE TABLE `members` (
 
 
 
+
+
+
 INSERT INTO `members` (`user_id`, `fullname`, `username`, `password`, `gender`, `dor`, `services`, `amount`, `paid_date`, `p_year`, `plan`, `address`, `contact`, `status`,  `reminder`) VALUES
 (6, 'Rashed Hasan', 'rashed', '123123', 'Male', '2023-12-25', 'CoxBazar', 165, '2023-06-02', 2023, '2', '64 Dhanmondi', '8545878545', 'Active',  0),
 (8, 'Chonchol Chowdhury', 'chonchol', '123123', 'Male', '2023-01-02', 'CoxBazar', 55, '2023-04-01', 2023, '2', '10 Mirpur', '8520258520', 'Active',  1),
@@ -91,13 +99,6 @@ INSERT INTO `members` (`user_id`, `fullname`, `username`, `password`, `gender`, 
 (18, 'Preety Dey', 'preety', '123123', 'Female', '2023-04-04', 'CoxBazar', 55, '2023-06-11', 2023, '1', '86 Banani', '7854445410', 'Active',  0),
 (19, 'Kamal Ahmed', 'Kamal', '123123', 'Male', '2023-04-02', 'CoxBazar', 55, '2023-06-11', 2023, '1', '43 Mdpur', '0258987850', 'Active',  1),
 (20, 'Jarin Tasnim', 'Jarin', '123123', 'Female', '2023-03-21', 'CoxBazar', 55, '2023-06-11', 2023, '1', '24 Mdpur', '8547896520', 'Active',  0);
-
-
-
-
-
-
-
 
 
 
@@ -150,7 +151,10 @@ CREATE TABLE `staffs` (
 
 
 
--- INSERT INTO `staffs` (`user_id`, `username`, `password`, `email`, `fullname`, `address`, `designation`, `gender`, `contact`) VALUES
+INSERT INTO `staffs` (`user_id`, `username`, `password`, `email`, `fullname`, `address`, `designation`, `gender`, `contact`) VALUES
+(1, 'manager', 'manager123', 'abdulkarim@gmail.com', 'Abdul karim', 'md.pur', 'TravelManager', 'Male', 111111111),
+(2, 'guide', 'guide123', 'guide@gmail.com', 'Jamal Karim', 'dhanmondi', 'Travelguide', 'Male', 222222222);
+
 
 
 CREATE TABLE `faqandsupp` (
