@@ -99,7 +99,7 @@ while($row = mysqli_fetch_array($result)) {
             <td><div class='text-center'>".$row['address']."</div></td>
             <td><div class='text-center'>$".$row['amount']."</div></td>
             <td><div class='text-center'>".$row['services']."</div></td>
-            <td><div class='text-center'>".$row['plan']." Month/s</div></td>
+            <td><div class='text-center'>".$row['plan']." Week/s</div></td>
             <td><div class='text-center'><a href='edit-memberform.php'><i class='fas fa-edit'></i> Edit</a></div></td>
         </tbody>";
 

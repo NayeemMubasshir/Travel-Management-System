@@ -129,7 +129,7 @@ header('location:../index.php');
                                                                     
                                                                     <tr>
                                                                         <td><?php echo $services; ?></td>
-                                                                        <td class="alignright"><?php echo $plan?> Month/s</td>
+                                                                        <td class="alignright"><?php echo $plan?> Week/s</td>
                                                                     </tr>
 
                                                                     <tr>

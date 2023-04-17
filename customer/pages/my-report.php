@@ -88,7 +88,7 @@
                     <tr>
                       <td><div class="text-center">TravellerNum-<?php echo $row['user_id']; ?></div></td>
                       <td><div class="text-center"><?php echo $row['services']; ?></div></td>
-                      <td><div class="text-center"><?php echo $row['plan']; ?> Month/s</div></td>
+                      <td><div class="text-center"><?php echo $row['plan']; ?> Week/s</div></td>
                       <td><div class="text-center"><?php echo $row['address']; ?></div></td>
                       <td><div class="text-center"><?php echo '$'.$row['amount']; ?></div></td>
                       
