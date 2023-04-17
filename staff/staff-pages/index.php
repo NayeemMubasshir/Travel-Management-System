@@ -113,7 +113,7 @@ header('location:../index.php');
 
                 <li class='clearfix'> 
                                                                         
-                    <div class='txt'> <?php echo $row["task_desc"]?> <?php if ($row["task_status"] == "Pending") { echo '<span class="date badge badge-important">Pending</span>';} else { echo '<span class="date badge badge-success">In Progress</span>'; }?></div>
+                    <div class='txt'> <?php echo $row["task_desc"]?> <?php if ($row["task_status"] == "Requestmanager") { echo '<span class="date badge badge-important">Requestmanager</span>';} else { echo '<span class="date badge badge-success">In Progress</span>'; }?></div>
                 
                <?php }
                 echo"</li>";

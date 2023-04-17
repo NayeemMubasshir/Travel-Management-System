@@ -74,7 +74,7 @@ header('location:../index.php');
                     <div class="controls">
                         <select name="task_status" required="required" id="select">
                         <option value="In Progress">In Progress</option>
-                        <option value="Pending">Pending</option>
+                        <option value="Requestmanager">Requestmanager</option>
                         </select>
                     </div>
                 </div>

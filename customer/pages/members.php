@@ -31,8 +31,7 @@ header('location:../index.php');
 <!--close-Header-part--> 
 
 
-<!--top-Header-menu-->
-
+<?php include '../includes/topheader.php'?>
 <!--close-top-Header-menu-->
 <!--start-top-serch-->
 <!-- <div id="search">
@@ -42,8 +41,7 @@ header('location:../index.php');
 <!--close-top-serch-->
 
 <!--sidebar-menu-->
-
-<!--sidebar-menu-->
+<?php $page='members-update'; include '../includes/sidebar.php'?>
 
 <div id="content">
   <div id="content-header">

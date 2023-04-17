@@ -33,7 +33,7 @@ $contact = $_POST["contact"];
 
 include 'setconntotraveldb.php';
 //code after connection is successfull
-$qry = "insert into members(fullname,username,password,dor,gender,services,amount,plan,address,contact,status) values ('$fullname','$username','$password', CURRENT_TIMESTAMP,'$gender','$services','0','$plan','$address','$contact','Pending')";
+$qry = "insert into members(fullname,username,password,dor,gender,services,amount,plan,address,contact,status) values ('$fullname','$username','$password', CURRENT_TIMESTAMP,'$gender','$services','0','$plan','$address','$contact','Requestmanager')";
 $result = mysqli_query($conn,$qry); //query executes
 
 if(!$result){

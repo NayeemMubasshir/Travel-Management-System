@@ -87,7 +87,7 @@ $result5=mysqli_query($conn,$qry);
       <div class="span6">
         <div class="widget-box">
           <div class="widget-title bg_ly" data-toggle="collapse" href="#collapseG2"><span class="icon"><i class="fas fa-chevron-down"></i></span>
-            <h5>travel travelevent</h5>
+            <h5>Travel Event</h5>
           </div>
           <div class="widget-content nopadding collapse in" id="collapseG2">
             <ul class="recent-posts">
@@ -138,7 +138,7 @@ $result5=mysqli_query($conn,$qry);
 
                 <li class='clearfix'> 
                                                                         
-                    <div class='txt'> <?php echo $row["task_desc"]?> <?php if ($row["task_status"] == "Pending") { echo '<span class="by label label-info">Pending</span>';} else { echo '<span class="by label label-success">In Progress</span>'; }?></div>
+                    <div class='txt'> <?php echo $row["task_desc"]?> <?php if ($row["task_status"] == "Requestmanager") { echo '<span class="by label label-info">Requestmanager</span>';} else { echo '<span class="by label label-success">In Progress</span>'; }?></div>
                 
                <?php }
                 echo"</li>";

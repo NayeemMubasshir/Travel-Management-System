@@ -14,9 +14,9 @@
 
     
 
-    <li class="<?php if($page=='travelevent'){ echo 'active'; }?>"><a href="travelevent.php"><i class="icon icon-bullhorn"></i> <span>travelevent</span></a></li>
+    <li class="<?php if($page=='travelevent'){ echo 'active'; }?>"><a href="travelevent.php"><i class=""></i> <span>travelevent</span></a></li>
 
-    <li class="<?php if($page=='report'){ echo 'active'; }?>"><a href="my-report.php"><i class="icon icon-file"></i> <span>Reports</span></a></li>
+    <li class="<?php if($page=='report'){ echo 'active'; }?>"><a href="my-report.php"><i class=""></i> <span>Reports</span></a></li>
 
 
     <li class="submenu"> <a href="#"><i class="fas fa-users"></i> <span>Manage Members</span></a>
@@ -32,7 +32,7 @@
 
     
 
-    <li class="<?php if($page=='faqandsupp'){ echo 'active'; }?>"> <a href="faqandsupp.php"><i class="icon icon-pencil"></i> <span>Travel FAQ</span></a>
+    <li class="<?php if($page=='faqandsupp'){ echo 'active'; }?>"> <a href="faqandsupp.php"><i class=""></i> <span>Travel FAQ</span></a>
 
 
     

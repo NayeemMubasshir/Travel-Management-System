@@ -170,7 +170,7 @@ CREATE TABLE `faqandsupp` (
 
 INSERT INTO `faqandsupp` (`id`, `task_status`, `task_desc`, `user_id`) VALUES
 (20, 'In Progress', 'When is the next event', 14),
-(21, 'Pending', 'Which hotel best for cox?', 6),
+(21, 'Requestmanager', 'Which hotel best for cox?', 6),
 (22, 'In Progress', 'Total price for the upcoming sajek travel location', 6);
 
 
