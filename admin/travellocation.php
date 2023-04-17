@@ -42,7 +42,7 @@ header('location:../index.php');
 <!--close-top-serch-->
 
 <!--sidebar-menu-->
-<?php $page='list-equip'; include 'includes/sidebar.php'?>
+<?php $page='list-travellocation'; include 'includes/sidebar.php'?>
 <!--sidebar-menu-->
 
 <div id="content">

@@ -31,7 +31,7 @@
 
 
 <!--top-Header-menu-->
-<?php include 'includes/topheader.php'?>
+<?php include '../includes/topheader.php'?>
 <!--close-top-Header-menu-->
 <!--start-top-serch-->
 <!-- <div id="search">
@@ -41,7 +41,7 @@
 <!--close-top-serch-->
 
 <!--sidebar-menu-->
-<?php $page='update-travellocation'; include 'includes/sidebar.php'?>
+<?php $page='update-travellocation'; include '../includes/sidebar.php'?>
 
 
 <!--sidebar-menu-->
@@ -62,6 +62,8 @@
             $contact = $_POST["contact"];
             $date = $_POST["date"];
             $quantity = $_POST["quantity"];
+            $bookername = $_POST["bookername"];
+            $bookercontact = $_POST["bookercontact"];
             $id=$_POST['id'];
 
             $totalamount = $amount * $quantity;
@@ -69,7 +71,7 @@
             include 'setconntotraveldb.php';
             //code after connection is successfull
             //update query
-            $qry = "update travellocation set name='$name', amount='$totalamount',vendor='$vendor', description='$description', address='$address', address='$address', contact='$contact', date='$date', quantity='$quantity' where id='$id'";
+            $qry = "update travellocation set name='$name', amount='$totalamount',vendor='$vendor', description='$description', address='$address', address='$address', contact='$contact', date='$date', quantity='$quantity', bookername='$bookername', bookercontact='$bookercontact' where id='$id'";
             $result = mysqli_query($conn,$qry); //query executes
 
             if(!$result){
@@ -115,7 +117,24 @@
             }
 
             }else{
-                echo"<h3>YOU ARE NOT AUTHORIZED TO REDIRECT THIS PAGE. GO BACK to <a href='index.php'> DASHBOARD </a></h3>";
+              echo"<div class='container-fluid'>";
+              echo"<div class='row-fluid'>";
+              echo"<div class='span12'>";
+              echo"<div class='widget-box'>";
+              echo"<div class='widget-title'> <span class='icon'> <i class='fas fa-info'></i> </span>";
+                  echo"<h5>Message</h5>";
+                  echo"</div>";
+                  echo"<div class='widget-content'>";
+                      echo"<div class='error_ex'>";
+                      echo"<h1>Success</h1>";
+                      echo"<h3>travellocation details has been updated!</h3>";
+                      echo"<p>The requested details are updated. Please click the button to go back.</p>";
+                      echo"<a class='btn btn-inverse btn-big'  href='travellocation.php'>Go Back</a> </div>";
+                  echo"</div>";
+                  echo"</div>";
+              echo"</div>";
+              echo"</div>";
+          echo"</div>";
             }
 ?>
                                                                

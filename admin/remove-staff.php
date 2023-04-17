@@ -13,7 +13,7 @@ include 'setconntotraveldb.php';
 
 
 $qry="delete from staffs where user_id=$id";
-$result=mysqli_query($con,$qry);
+$result=mysqli_query($conn,$qry);
 
 if($result){
     echo"DELETED";

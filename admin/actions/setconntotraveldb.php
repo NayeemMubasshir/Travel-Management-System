@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect("localhost","root","","traveldatabasemain");
+$conn = mysqli_connect("localhost","root","","traveldatabasemain");
 
 // Check connection
 if (mysqli_connect_errno())

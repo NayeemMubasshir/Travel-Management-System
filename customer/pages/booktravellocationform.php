@@ -1,6 +1,5 @@
 <?php
 session_start();
-//the isset function to check username is already loged in and stored on the session
 if(!isset($_SESSION['user_id'])){
 header('location:../index.php');	
 }
@@ -32,7 +31,7 @@ header('location:../index.php');
 
 
 <!--top-Header-menu-->
-<?php include 'includes/topheader.php'?>
+<?php include '../includes/topheader.php'?>
 <!--close-top-Header-menu-->
 <!--start-top-serch-->
 <!-- <div id="search">
@@ -42,12 +41,21 @@ header('location:../index.php');
 <!--close-top-serch-->
 
 <!--sidebar-menu-->
-<?php $page='add-travellocation'; include 'includes/sidebar.php'?>
+<?php $page='update-travellocation'; include '../includes/sidebar.php'?>
 <!--sidebar-menu-->
+    <?php
+        include 'setconntotraveldb.php';
+        $id=$_GET['id'];
+        $anotherqry = "update travellocation set bookedstatus='booked' where id='$id'";
+        $anotherresult=mysqli_query($conn,$anotherqry);
+        $qry= "select * from travellocation where id='$id'";
+        $result=mysqli_query($conn,$qry);
+        while($row=mysqli_fetch_array($result)){
+    ?> 
 
 <div id="content">
 <div id="content-header">
-  <div id="breadcrumb"> <a href="index.php" title="Go to Home" class="tip-bottom"><i class="fas fa-home"></i> Home</a> <a href="#" class="tip-bottom">travellocations</a> <a href="#" class="current">Add travellocations</a> </div>
+  <div id="breadcrumb"> <a href="index.php" title="Go to Home" class="tip-bottom"><i class="fas fa-home"></i> Home</a> <a href="#" class="tip-bottom">travellocations</a> <a href="#" class="current">Edit travellocations</a> </div>
   <h1>travellocation Entry Form</h1>
 </div>
 <div class="container-fluid">
@@ -56,20 +64,38 @@ header('location:../index.php');
     <div class="span6">
       <div class="widget-box">
         <div class="widget-title"> <span class="icon"> <i class="fas fa-align-justify"></i> </span>
-          <h5>Eqipment-info</h5>
+          <h5>Booking-info</h5>
         </div>
         <div class="widget-content nopadding">
-          <form action="addtravellocationreq.php" method="POST" class="form-horizontal">
+          <form action="booktravellocationreq.php" method="POST" class="form-horizontal">
             <div class="control-group">
-              <label class="control-label">travellocation :</label>
+              <label class="control-label">travellocation Name :</label>
               <div class="controls">
-                <input type="text" class="span11" name="ename" placeholder="travellocation Name" required />
+                <input type="text" class="span11" name="name" value='<?php echo $row['name']; ?>' required />
               </div>
             </div>
+
+            <div class="control-group">
+              <label class="control-label">Booker Name :</label>
+              <div class="controls">
+                <input type="text" class="span11" name="bookername" value='<?php echo $row['bookername']; ?>' required />
+              </div>
+            </div>
+
+
+            <div class="control-group">
+              <label class="control-label">Booker contact :</label>
+              <div class="controls">
+                <input type="text" class="span11" name="bookercontact" value='<?php echo $row['bookercontact']; ?>' required />
+              </div>
+            </div>
+
+
+
             <div class="control-group">
               <label class="control-label">Description :</label>
               <div class="controls">
-                <input type="text" class="span11" name="description" placeholder="Short Description" required />
+                <input type="text" class="span11" name="description" value='<?php echo $row['description']; ?>' required />
               </div>
             </div>
            
@@ -77,14 +103,14 @@ header('location:../index.php');
             <div class="control-group">
               <label class="control-label">Date of Purchase :</label>
               <div class="controls">
-                <input type="date" name="date" class="span11" />
+                <input type="date" name="date" value='<?php echo $row['date']; ?>' class="span11" />
                 <span class="help-block">Please mention the date of purchase</span> </div>
             </div>
 
-            <div class="control-group">
+             <div class="control-group">
               <label class="control-label">Quantity :</label>
               <div class="controls">
-                <input type="number" class="span5" name="quantity" placeholder="travellocation Qty" required />
+                <input type="number" class="span4" name="quantity" value='<?php echo $row['quantity']; ?>'  required />
               </div>
             </div>
             
@@ -121,29 +147,26 @@ header('location:../index.php');
         </div>
         <div class="widget-content nopadding">
           <div class="form-horizontal">
-            
+            <div class="control-group">
+              <label for="normal" class="control-label">Contact Number</label>
+              <div class="controls">
+                <input type="text" id="mask-phone" name="contact" minlength="10" maxlength="10" value='<?php echo $row['contact']; ?>' class="span8 mask text" required>
+                <span class="help-block blue span8">(999) 999-9999</span> 
+                </div>
+            </div>
             <div class="control-group">
               <label class="control-label">vendor :</label>
               <div class="controls">
-                <input type="text" class="span11" name="vendor" placeholder="vendor"required />
+                <input type="text" class="span11" name="vendor" value='<?php echo $row['vendor']; ?>' required />
               </div>
             </div>
 
             <div class="control-group">
               <label class="control-label">Address :</label>
               <div class="controls">
-                <input type="text" class="span11" name="address" placeholder="vendor Address" required />
+                <input type="text" class="span11" name="address" value='<?php echo $row['address']; ?>' required />
               </div>
             </div>
-
-            <div class="control-group">
-              <label for="normal" class="control-label">Contact Number</label>
-              <div class="controls">
-                <input type="text" id="mask-phone" name="contact" minlength="10" maxlength="10" class="span8 mask text" required>
-                <span class="help-block blue span8">(999) 999-9999</span> 
-                </div>
-            </div>
-
           </div>
 
               <div class="widget-title"> <span class="icon"> <i class="fas fa-align-justify"></i> </span>
@@ -156,11 +179,11 @@ header('location:../index.php');
     
 
             <div class="control-group">
-              <label class="control-label">Cost Per Item: </label>
+              <label class="control-label">Total Cost: </label>
               <div class="controls">
                 <div class="input-append">
                   <span class="add-on">$</span> 
-                  <input type="number" placeholder="269" name="amount" class="span11" required>
+                  <input type="number" placeholder="120000" name="amount" value='<?php echo $row['amount']; ?>' class="span11" required>
                   </div>
               </div>
             </div>
@@ -168,12 +191,17 @@ header('location:../index.php');
           
             
             <div class="form-actions text-center">
+                <!-- user's ID is hidden here -->
+             <input type="hidden" name="id" value="<?php echo $row['id'];?>">
               <button type="submit" class="btn btn-success">Submit Details</button>
             </div>
             </form>
 
           </div>
 
+          <?php
+        }
+    ?>
 
 
         </div>
@@ -181,10 +209,10 @@ header('location:../index.php');
         </div>
       </div>
 
-	</div>
+	
   </div>
   
- 
+  
 </div></div>
 
 

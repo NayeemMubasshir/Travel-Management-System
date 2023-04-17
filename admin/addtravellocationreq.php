@@ -41,7 +41,7 @@ header('location:../index.php');
 <!--close-top-serch-->
 
 <!--sidebar-menu-->
-<?php $page='add-equip'; include 'includes/sidebar.php'?>
+<?php $page='add-travellocation'; include 'includes/sidebar.php'?>
 
 
 <!--sidebar-menu-->

@@ -1,8 +1,9 @@
 <?php
-  session_start();
-    if(!isset($_SESSION['user_id'])) {
-      header('location:../index.php');	
-    }
+session_start();
+//the isset function to check username is already loged in and stored on the session
+if(!isset($_SESSION['user_id'])){
+header('location:../index.php');	
+}
 ?>
 
 <!DOCTYPE html>
@@ -41,35 +42,34 @@
 <!--close-top-serch-->
 
 <!--sidebar-menu-->
-<?php $page='update-travellocation'; include 'includes/sidebar.php'?>
-
-
+<?php $page='members-update'; include 'includes/sidebar.php'?>
 <!--sidebar-menu-->
 <div id="content">
 <div id="content-header">
-  <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="fas fa-home"></i> Home</a> <a href="#" class="tip-bottom">Manamge travellocations</a> <a href="#" class="current">Update travellocation</a> </div>
-  <h1>Update travellocation</h1>
+  <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="fas fa-home"></i> Home</a> <a href="#" class="tip-bottom">Manamge Members</a> <a href="#" class="current">Add Members</a> </div>
+  <h1>Update Member Details</h1>
 </div>
 <form role="form" action="index.php" method="POST">
     <?php 
 
-            if(isset($_POST['name'])){
-            $name = $_POST["name"];    
+            if(isset($_POST['fullname'])){
+            $fullname = $_POST["fullname"];    
+            $username = $_POST["username"];
+            $dor = $_POST["dor"];
+            $gender = $_POST["gender"];
+            $services = $_POST["services"];
             $amount = $_POST["amount"];
-            $vendor = $_POST["vendor"];
-            $description = $_POST["description"];
+            $plan = $_POST["plan"];
             $address = $_POST["address"];
             $contact = $_POST["contact"];
-            $date = $_POST["date"];
-            $quantity = $_POST["quantity"];
-            $id=$_POST['id'];
+            $id = $_POST["id"];
 
-            $totalamount = $amount * $quantity;
+            $totalamount = $amount * $plan;
             
             include 'setconntotraveldb.php';
             //code after connection is successfull
             //update query
-            $qry = "update travellocation set name='$name', amount='$totalamount',vendor='$vendor', description='$description', address='$address', address='$address', contact='$contact', date='$date', quantity='$quantity' where id='$id'";
+            $qry = "update members set fullname='$fullname', username='$username',dor='$dor', gender='$gender', services='$services', amount='$totalamount', plan='$plan', address='$address', contact='$contact' where user_id='$id'";
             $result = mysqli_query($conn,$qry); //query executes
 
             if(!$result){
@@ -85,7 +85,7 @@
                             echo"<h1 style='color:maroon;'>Error 404</h1>";
                             echo"<h3>Error occured while updating your details</h3>";
                             echo"<p>Please Try Again</p>";
-                            echo"<a class='btn btn-warning btn-big'  href='edittravellocation.php'>Go Back</a> </div>";
+                            echo"<a class='btn btn-warning btn-big'  href='edit-member.php'>Go Back</a> </div>";
                         echo"</div>";
                         echo"</div>";
                     echo"</div>";
@@ -103,15 +103,15 @@
                         echo"<div class='widget-content'>";
                             echo"<div class='error_ex'>";
                             echo"<h1>Success</h1>";
-                            echo"<h3>travellocation details has been updated!</h3>";
+                            echo"<h3>Member details has been updated!</h3>";
                             echo"<p>The requested details are updated. Please click the button to go back.</p>";
-                            echo"<a class='btn btn-inverse btn-big'  href='travellocation.php'>Go Back</a> </div>";
+                            echo"<a class='btn btn-inverse btn-big'  href='members.php'>Go Back</a> </div>";
                         echo"</div>";
                         echo"</div>";
                     echo"</div>";
                     echo"</div>";
                 echo"</div>";
-                // 
+
             }
 
             }else{

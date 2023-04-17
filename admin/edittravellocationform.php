@@ -41,7 +41,7 @@ header('location:../index.php');
 <!--close-top-serch-->
 
 <!--sidebar-menu-->
-<?php $page='update-equip'; include 'includes/sidebar.php'?>
+<?php $page='update-travellocation'; include 'includes/sidebar.php'?>
 <!--sidebar-menu-->
     <?php
         include 'setconntotraveldb.php';
@@ -53,7 +53,7 @@ header('location:../index.php');
 
 <div id="content">
 <div id="content-header">
-  <div id="breadcrumb"> <a href="index.php" title="Go to Home" class="tip-bottom"><i class="fas fa-home"></i> Home</a> <a href="#" class="tip-bottom">equipments</a> <a href="#" class="current">Edit equipments</a> </div>
+  <div id="breadcrumb"> <a href="index.php" title="Go to Home" class="tip-bottom"><i class="fas fa-home"></i> Home</a> <a href="#" class="tip-bottom">travellocations</a> <a href="#" class="current">Edit travellocations</a> </div>
   <h1>travellocation Entry Form</h1>
 </div>
 <div class="container-fluid">

@@ -3,7 +3,8 @@
 
     <li class="submenu"> <a href="#"><i class="fas fa-plane-departure"></i> <span>Travel Contents</span> <span class="label label-important"></span></a>
     <ul>
-        <li class="<?php if($page=='list-travellocation'){ echo 'active'; }?>"><a href="travellocation.php"><i class="fas fa-arrow-right"></i> List travel travellocation</a></li>
+        <li class="<?php if($page=='list-travellocation'){ echo 'active'; }?>"><a href="travellocation.php"><i class="fas fa-arrow-right"></i> List travellocation</a></li>
+        <li class="<?php if($page=='update-travellocation'){ echo 'active'; }?>"><a href="booktravellocation.php"><i class="fas fa-arrow-right"></i> Booking Details</a></li>
         
       </ul>
     </li>

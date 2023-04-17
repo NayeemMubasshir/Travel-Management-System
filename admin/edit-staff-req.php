@@ -21,7 +21,7 @@ header('location:../index.php');
             //code after connection is successfull
             //update query
             $qry = "update staffs set fullname='$fullname', username='$username', gender='$gender', contact='$contact',  address='$address', designation='$designation' where user_id='$id'";
-            $result = mysqli_query($con,$qry); //query executes
+            $result = mysqli_query($conn,$qry); //query executes
 
             if(!$result){
                 echo"ERROR!!";

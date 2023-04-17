@@ -6,11 +6,11 @@ header('location:../index.php');
 }
 include "setconntotraveldb.php";
 $qry="SELECT services, count(*) as number FROM members GROUP BY services";
-$result=mysqli_query($con,$qry);
+$result=mysqli_query($conn,$qry);
 $qry="SELECT gender, count(*) as enumber FROM members GROUP BY gender";
-$result3=mysqli_query($con,$qry);
+$result3=mysqli_query($conn,$qry);
 $qry="SELECT designation, count(*) as snumber FROM staffs GROUP BY designation";
-$result5=mysqli_query($con,$qry);
+$result5=mysqli_query($conn,$qry);
 ?>
 
 <!DOCTYPE html>
@@ -132,7 +132,7 @@ $result5=mysqli_query($con,$qry);
 
                 include "setconntotraveldb.php";
                 $qry="SELECT * FROM faqandsupp";
-                $result=mysqli_query($con,$qry);
+                $result=mysqli_query($conn,$qry);
 
                 while($row=mysqli_fetch_array($result)){ ?>
 

@@ -32,7 +32,7 @@ header('location:../index.php');
 
 
 <!--top-Header-menu-->
-<?php include 'includes/topheader.php'?>
+
 <!--close-top-Header-menu-->
 <!--start-top-serch-->
 <!-- <div id="search">
@@ -42,14 +42,13 @@ header('location:../index.php');
 <!--close-top-serch-->
 
 <!--sidebar-menu-->
-  
-<?php $page='remove-travellocation'; include 'includes/sidebar.php'?>
+
 <!--sidebar-menu-->
 
 <div id="content">
   <div id="content-header">
-    <div id="breadcrumb"> <a href="index.php" title="Go to Home" class="tip-bottom"><i class="fas fa-home"></i> Home</a> <a href="removetravellocation.php" class="current">Remove travellocation</a> </div>
-    <h1 class="text-center">Remove travellocation <i class="fas fa-cogs"></i></h1>
+    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="fas fa--home"></i> Home</a> <a href="#" class="current">Registered Members</a> </div>
+    <h1 class="text-center">Registered Members List <i class="fas fa-group"></i></h1>
   </div>
   <div class="container-fluid">
     <hr>
@@ -57,50 +56,54 @@ header('location:../index.php');
       <div class="span12">
 
       <div class='widget-box'>
-          <div class='widget-title'> <span class='icon'> <i class='fas fa-cogs'></i> </span>
-            <h5>travellocation table</h5>
+          <div class='widget-title'> <span class='icon'> <i class='fas fa-th'></i> </span>
+            <h5>Member table</h5>
           </div>
           <div class='widget-content nopadding'>
 	  
 	  <?php
 
-      include "setconntotraveldb.php";
-      $qry="select * from travellocation";
-      $cnt = 1;
-        $result=mysqli_query($conn,$qry);
+include "setconntotraveldb.php";
 
-        
-          echo"<table class='table table-bordered table-hover'>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>travellocation</th>
-                  <th>Description</th>
-                  <th>Qty</th>
-                  <th>Amount</th>
-                  <th>vendor</th>
-                  <th>Contact</th>
-                  <th>Available Till</th>
-                  <th>Action</th>
-                </tr>
-              </thead>";
-              
-            while($row=mysqli_fetch_array($result)){
-            
-            echo"<tbody> 
-               
-                <td><div class='text-center'>".$cnt."</div></td>
-                <td><div class='text-center'>".$row['name']."</div></td>
-                <td><div class='text-center'>".$row['description']."</div></td>
-                <td><div class='text-center'>".$row['quantity']."</div></td>
-                <td><div class='text-center'>$".$row['amount']."</div></td>
-                <td><div class='text-center'>".$row['vendor']."</div></td>
-                <td><div class='text-center'>".$row['contact']."</div></td>
-                <td><div class='text-center'>".$row['date']."</div></td>
-                <td><div class='text-center'><a href='actions/delete-travellocation.php?id=".$row['id']."' style='color:#F66;'><i class='fas fa-trash'></i> Remove</a></div></td>
-                
-              </tbody>";
-          $cnt++;  }
+// Get the user ID of the currently logged-in user
+$user_id = $_SESSION['user_id'];
+
+$qry = "SELECT * FROM members WHERE user_id = $user_id";
+$result = mysqli_query($conn, $qry);
+
+echo "<table class='table table-bordered table-hover'>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Fullname</th>
+                <th>Username</th>
+                <th>Gender</th>
+                <th>Contact Number</th>
+                <th>D.O.R</th>
+                <th>Address</th>
+                <th>Amount</th>
+                <th>Choosen Service</th>
+                <th>Plan</th>
+                <th>Action</th>
+            </tr>
+        </thead>";
+
+while($row = mysqli_fetch_array($result)) {
+    echo "<tbody> 
+            <td><div class='text-center'>1</div></td>
+            <td><div class='text-center'>".$row['fullname']."</div></td>
+            <td><div class='text-center'>@".$row['username']."</div></td>
+            <td><div class='text-center'>".$row['gender']."</div></td>
+            <td><div class='text-center'>".$row['contact']."</div></td>
+            <td><div class='text-center'>".$row['dor']."</div></td>
+            <td><div class='text-center'>".$row['address']."</div></td>
+            <td><div class='text-center'>$".$row['amount']."</div></td>
+            <td><div class='text-center'>".$row['services']."</div></td>
+            <td><div class='text-center'>".$row['plan']." Month/s</div></td>
+            <td><div class='text-center'><a href='edit-memberform.php'><i class='fas fa-edit'></i> Edit</a></div></td>
+        </tbody>";
+
+            }
             ?>
 
             </table>

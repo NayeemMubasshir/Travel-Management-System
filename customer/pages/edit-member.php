@@ -32,7 +32,7 @@ header('location:../index.php');
 
 
 <!--top-Header-menu-->
-
+<?php include 'includes/topheader.php'?>
 <!--close-top-Header-menu-->
 <!--start-top-serch-->
 <!-- <div id="search">
@@ -42,7 +42,7 @@ header('location:../index.php');
 <!--close-top-serch-->
 
 <!--sidebar-menu-->
-
+<?php $page='members-update'; include 'includes/sidebar.php'?>
 <!--sidebar-menu-->
 
 <div id="content">
@@ -63,47 +63,50 @@ header('location:../index.php');
 	  
 	  <?php
 
-include "setconntotraveldb.php";
+      include "setconntotraveldb.php";
+      $user_id = $_SESSION['user_id'];
 
-// Get the user ID of the currently logged-in user
-$user_id = $_SESSION['user_id'];
+      $qry = "select * FROM members where user_id = $user_id";
+      
+      $cnt = 1;
+        $result=mysqli_query($conn,$qry);
 
-$qry = "SELECT * FROM members WHERE user_id = $user_id";
-$result = mysqli_query($conn, $qry);
-
-echo "<table class='table table-bordered table-hover'>
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Fullname</th>
-                <th>Username</th>
-                <th>Gender</th>
-                <th>Contact Number</th>
-                <th>D.O.R</th>
-                <th>Address</th>
-                <th>Amount</th>
-                <th>Choosen Service</th>
-                <th>Plan</th>
-                <th>Action</th>
-            </tr>
-        </thead>";
-
-while($row = mysqli_fetch_array($result)) {
-    echo "<tbody> 
-            <td><div class='text-center'>1</div></td>
-            <td><div class='text-center'>".$row['fullname']."</div></td>
-            <td><div class='text-center'>@".$row['username']."</div></td>
-            <td><div class='text-center'>".$row['gender']."</div></td>
-            <td><div class='text-center'>".$row['contact']."</div></td>
-            <td><div class='text-center'>".$row['dor']."</div></td>
-            <td><div class='text-center'>".$row['address']."</div></td>
-            <td><div class='text-center'>$".$row['amount']."</div></td>
-            <td><div class='text-center'>".$row['services']."</div></td>
-            <td><div class='text-center'>".$row['plan']." Month/s</div></td>
-            <td><div class='text-center'><a href='edit-memberform.php'><i class='fas fa-edit'></i> Edit</a></div></td>
-        </tbody>";
-
-            }
+        
+          echo"<table class='table table-bordered table-hover'>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Fullname</th>
+                  <th>Username</th>
+                  <th>Gender</th>
+                  <th>Contact Number</th>
+                  <th>D.O.R</th>
+                  <th>Address</th>
+                  <th>Amount</th>
+                  <th>Choosen Service</th>
+                  <th>Plan</th>
+                  <th>Action</th>
+                </tr>
+              </thead>";
+              // 
+            while($row=mysqli_fetch_array($result)){
+            
+            echo"<tbody> 
+               
+                <td><div class='text-center'>".$cnt."</div></td>
+                <td><div class='text-center'>".$row['fullname']."</div></td>
+                <td><div class='text-center'>@".$row['username']."</div></td>
+                <td><div class='text-center'>".$row['gender']."</div></td>
+                <td><div class='text-center'>".$row['contact']."</div></td>
+                <td><div class='text-center'>".$row['dor']."</div></td>
+                <td><div class='text-center'>".$row['address']."</div></td>
+                <td><div class='text-center'>$".$row['amount']."</div></td>
+                <td><div class='text-center'>".$row['services']."</div></td>
+                <td><div class='text-center'>".$row['plan']." Month/s</div></td>
+                <td><div class='text-center'><a href='edit-memberform.php?id=".$row['user_id']."'><i class='fas fa-edit'></i> Edit</a></div></td>
+                
+              </tbody>";
+         $cnt++;   }
             ?>
 
             </table>
